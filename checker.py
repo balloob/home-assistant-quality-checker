@@ -441,8 +441,9 @@ def main(token: str, args) -> None:
         report = response.text
 
         footer = [
-            "Created at {datetime}. Prompt tokens: {prompt_tokens}, Output tokens: {output_tokens}, Total tokens: {total_tokens}.".format(
+            "Created at {datetime} using {model}. Prompt tokens: {prompt_tokens}, Output tokens: {output_tokens}, Total tokens: {total_tokens}.".format(
                 datetime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                model=model,
                 prompt_tokens=response.usage_metadata.prompt_token_count,
                 output_tokens=response.usage_metadata.candidates_token_count,
                 total_tokens=response.usage_metadata.total_token_count,
